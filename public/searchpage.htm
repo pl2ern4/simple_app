@@ -1,0 +1,51 @@
+<div class="search container" ng-controller="searchbox">
+	<div class="row">
+		<h2>Search your movies here</h2>
+		<div id="custom-search-input">
+			<div class="input-group col-md-12">
+				<input type="text" ng-keyup="search($event,val);" ng-model="sinput" class="search-query form-control" placeholder="Search" />
+				
+				<span class="input-group-btn">
+					<button ng-click="search('13',val);" class="btn btn-info" type="button">
+						<span class="glyphicon glyphicon-search"></span>
+					</button>
+				</span>
+				
+			</div>
+			<div class="input-group col-md-1">
+				<span class="input-group">
+					<div class="checkbox"><label><input ng-model="isFull" type="checkbox" value="">Full?</label></div>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div ng-show="myVar">
+		<h3 class="text-warning">This text represents a warning.</h3>
+	</div>
+	<div ng-show="showDetail" class="col-md-6">
+		<div class="">
+			<div class="content">
+				<img src={{poster}} class="img-rounded" alt="Cinque Terre">
+			</div>
+			<div class="detail">
+					<span class="title">Title</span>:<span class="title">{{title}}</span><br>
+					<span class="title">Year</span>:<span class="title">{{year}}</span><br>
+					<span class="title">Rated</span>:<span class="title">{{rate}}</span><br>
+					<span class="title">Released</span>:<span class="title">{{rel}}</span><br>
+					<span class="title">Runtime</span>:<span class="title">{{run}}</span><br>
+					<span class="title">Genre</span>:<span class="title">{{gen}}</span><br>
+					<span class="title">Director</span>:<span class="title">{{dic}}</span><br>
+					<span class="title">Writer</span>:<span class="title">{{wri}}</span><br>
+					<span class="title">Actors</span>:<span class="title">{{act}}</span><br>
+					<span class="title">Language</span>:<span class="title">{{lang}}</span><br>
+					<span class="title">Award</span>:<span class="title">{{awd}}</span><br>
+					<div ng-repeat="x in lor"><span class="title">{{x.Source}}</span>:<span class="title">{{x.Value}}</span><br></div>
+					<span class="title">imdbRating</span>:<span class="title">{{imrat}}</span><br>
+					<span class="title">imdbVotes</span>:<span class="title">{{imvot}}</span><br>
+					<span class="title">Type</span>:<span class="title">{{type}}</span><br>
+					<span class="title">Plot</span>:<span class="title">{{plot}}</span><br>
+				<br>
+			</div>
+		</div>
+	</div>
+</div>

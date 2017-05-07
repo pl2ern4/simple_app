@@ -1,0 +1,101 @@
+html{background-color: #000}
+body{width: 1024px;margin: 0 auto;font-family: 'Roboto';padding-right: 0!important;position: relative;}
+html, body {
+  height: 100%;
+}
+.img-rounded{
+	width: 200px;
+	height: 286px;
+}
+.content_wrp{
+  { width:400px; display:inline-block; height:80px; border:1px solid #000; margin-right:10px; padding:0; }
+}
+.title{
+	padding: 2px;
+}
+.content 
+  { display:table-cell; color:#fff; vertical-align:middle; width:120px; margin:0; padding:0; height:80px; background-size:100%; 
+}
+.sidebar {
+     display:table-cell; color:#000; vertical-align:middle; width:280px; padding:13px 10px 115px 10px; 
+
+}
+.nav {
+	margin-bottom: 36px;
+	background-color: #000;
+}
+.right{
+	float:right;
+	margin-left:1px;
+}
+.rounded-div {
+    border-radius: 15px;
+    padding: 20px; 
+    border-style: solid;
+	border-width: 1px;
+	height:325px;
+	width:473px;
+}
+
+.row{
+	min-height:100%;
+}
+.wrapper { 
+  border : 2px solid #000; 
+  overflow:hidden;
+}
+
+.wrapper div {
+   min-height: 200px;
+   padding: 10px;
+}
+
+@media screen and (max-width: 786px) {
+   .row{
+		height:200vh;
+	}
+}
+
+
+
+#custom-search-input {
+	margin:0;
+	margin-top: 10px;
+	padding: 0;
+}
+
+#custom-search-input .search-query {
+	padding-right: 3px;
+	padding-right: 4px \9;
+	padding-left: 3px;
+	padding-left: 4px \9;
+	/* IE7-8 doesn't have border-radius, so don't indent the padding */
+
+	margin-bottom: 0;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+#custom-search-input button {
+	border: 0;
+	background: none;
+	/** belows styles are working good */
+	padding: 2px 5px;
+	margin-top: 2px;
+	position: relative;
+	left: -28px;
+	/* IE7-8 doesn't have border-radius, so don't indent the padding */
+	margin-bottom: 0;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	color:#D9230F;
+}
+
+.search-query:focus + button {
+	z-index: 3;   
+}
+.search,.detail{
+    width: 735px;
+}

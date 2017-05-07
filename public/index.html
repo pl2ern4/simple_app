@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="feature" ng-style="new_style">
+	<title>Movie </title>
+	
+	
+	
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./style.css"/>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>	
+	<script src="./file.js"></script>	
+	
+
+	
+
+	<body>
+		<ul class="nav nav-pills" ng-controller="Menu">
+			<li ng-class="{'active':home}"><a href="#search" ng-click="onclick()">Search</a></li>
+			<li ng-class="{'active':feature}"><a href="#feature" ng-click="onclick()">Featured</a></li>
+		</ul>
+		<div id="main">
+			<div ng-view></div>
+		</div>
+	</body>
+
+</html>

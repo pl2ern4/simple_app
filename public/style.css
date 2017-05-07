@@ -7,9 +7,9 @@ html, body {
 	width: 200px;
 	height: 286px;
 }
-.content_wrp{
+.content_wrp
   { width:400px; display:inline-block; height:80px; border:1px solid #000; margin-right:10px; padding:0; }
-}
+
 .title{
 	padding: 2px;
 }
@@ -24,10 +24,7 @@ html, body {
 	margin-bottom: 36px;
 	background-color: #000;
 }
-.right{
-	float:right;
-	margin-left:1px;
-}
+	
 .rounded-div {
     border-radius: 15px;
     padding: 20px; 
@@ -35,6 +32,7 @@ html, body {
 	border-width: 1px;
 	height:325px;
 	width:473px;
+	margin-left: 23px;
 }
 
 .row{
@@ -51,8 +49,24 @@ html, body {
 }
 
 @media screen and (max-width: 786px) {
+	html, body {
+  height: auto;
+}
+.sidebar {
+padding: auto!important;
+width:auto;	
+}
    .row{
 		height:200vh;
+	}
+	.rounded-div {
+		margin-bottom: 10px;
+		width:345px;
+	}
+	.img-rounded {
+    width: 155px;
+    height: 249px;
+	margin-top: -73px;
 	}
 }
 

@@ -61,7 +61,7 @@ app.controller('searchbox',function($scope,$http){
 });
 
 app.controller('Menu', function($scope){
-	
+	$("html").css('height','160%');
 	$scope.home = true;
 	$scope.feature = false;
 	

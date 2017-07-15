@@ -26,36 +26,34 @@ app.controller('searchbox',function($scope,$http){
 				url+="&plot=full";
 			else
 				url+="&plot=short";
-			
-			$http.get(url)
-			.then(function(response) {
-				if(response.data.Response!="False"){
-					$("html").css('height','auto');
-					$scope.myVar = false;
-					$scope.showDetail = true;
-					$scope.title=response.data.Title;
-					$scope.rate=response.data.Rated;
-					$scope.rel=response.data.Released;
-					$scope.run=response.data.Runtime;
-					$scope.gen=response.data.Genre;
-					$scope.dic=response.data.Director;
-					$scope.wri=response.data.Writer;
-					$scope.act=response.data.Actors;
-					$scope.lang=response.data.Language;
-					$scope.imrat=response.data.imdbRating;
-					$scope.imvot=response.data.imdbVotes;
-					$scope.type=response.data.Type;
-					$scope.lor=response.data.Ratings;
-					$scope.year=response.data.Year;
-					$scope.award=response.data.Awards;
-					$scope.poster=(response.data.Poster!="N/A") ? response.data.Poster :"https://image.ibb.co/cZ3D5k/ni.jpg";
-					$scope.plot=response.data.Plot;
-				}
-				else if(response.data.Response=="False"){
-					$scope.myVar = true;
-					$scope.showDetail = false;
-				}
-			});
+
+            var response = getAPICall.getResult(url);
+			if(response.data.Response!="False"){
+				$("html").css('height','auto');
+				$scope.myVar = false;
+				$scope.showDetail = true;
+				$scope.title=response.data.Title;
+				$scope.rate=response.data.Rated;
+				$scope.rel=response.data.Released;
+				$scope.run=response.data.Runtime;
+				$scope.gen=response.data.Genre;
+				$scope.dic=response.data.Director;
+				$scope.wri=response.data.Writer;
+				$scope.act=response.data.Actors;
+				$scope.lang=response.data.Language;
+				$scope.imrat=response.data.imdbRating;
+				$scope.imvot=response.data.imdbVotes;
+				$scope.type=response.data.Type;
+				$scope.lor=response.data.Ratings;
+				$scope.year=response.data.Year;
+				$scope.award=response.data.Awards;
+				$scope.poster=(response.data.Poster!="N/A") ? response.data.Poster :"https://image.ibb.co/cZ3D5k/ni.jpg";
+				$scope.plot=response.data.Plot;
+			}
+			else if(response.data.Response=="False"){
+				$scope.myVar = true;
+				$scope.showDetail = false;
+			}
 		}
 	}
 });
@@ -76,29 +74,38 @@ app.controller('Menu', function($scope){
 		}
 	}
 });
-app.controller('mvController1', function($scope , $http){
+app.controller('mvController1',['$scope','getAPICall', function($scope , getAPICall){
+
+    var resp = getAPICall.getResult('http://www.omdbapi.com?i=tt4849438');
+    if(resp!=null) {
+        $scope.myWelcome = resp.data;
+        $scope.title = resp.data.Title;
+        $scope.year = resp.data.Year;
+        $scope.award = resp.data.Awards;
+        $scope.poster = (resp.data.Poster != "N/A") ? resp.data.Poster : "https://image.ibb.co/cZ3D5k/ni.jpg";
+        $scope.plot = resp.data.Plot;
+    }
+}]);
+app.controller('mvController2', ['$scope','getAPICall',function($scope , getAPICall){
+
+	var resp = getAPICall.getResult('http://www.omdbapi.com?i=tt4849438');
+    if(resp!=null) {
+        $scope.myWelcome = resp.data;
+        $scope.title = resp.data.Title;
+        $scope.year = resp.data.Year;
+        $scope.award = resp.data.Awards;
+        $scope.poster = (resp.data.Poster != "N/A") ? resp.data.Poster : "https://image.ibb.co/cZ3D5k/ni.jpg";
+        $scope.plot = resp.data.Plot;
+    }
 	
-	$http.get("http://www.omdbapi.com?t=la%20la%20land")
-    .then(function(response) {
-        $scope.myWelcome = response.data;
-		$scope.title=response.data.Title;
-		$scope.year=response.data.Year;
-		$scope.award=response.data.Awards;
-		$scope.poster=(response.data.Poster!="N/A") ? response.data.Poster :"https://image.ibb.co/cZ3D5k/ni.jpg";
-		$scope.plot=response.data.Plot;
-    });
-	
-});
-app.controller('mvController2', function($scope , $http){
-	
-	$http.get("http://www.omdbapi.com?i=tt4849438")
-    .then(function(response) {
-        $scope.myWelcome = response.data;
-		$scope.title=response.data.Title;
-		$scope.year=response.data.Year;
-		$scope.award=response.data.Awards;
-		$scope.poster= (response.data.Poster!="N/A") ? response.data.Poster :"https://image.ibb.co/cZ3D5k/ni.jpg";
-		$scope.plot=response.data.Plot;
-    });
-	
+}]);
+app.factory('getAPICall',function($http){
+    return {
+    	getResult : function(url){
+            $http.get(url)
+                .success(function(response) {
+                    return response;
+                });
+		}
+	}
 });
